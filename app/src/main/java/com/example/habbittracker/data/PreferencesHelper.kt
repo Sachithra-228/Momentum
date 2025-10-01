@@ -31,11 +31,13 @@ class PreferencesHelper(context: Context) {
         private const val KEY_LAST_OPEN_DATE = "app_last_open_date"
         private const val KEY_DEMO_DATA_LOADED = "demo_data_loaded"
         private const val KEY_READING_NOTES = "reading_notes_json"
+        private const val KEY_ONBOARDING_DONE = "onboarding_done"
+        private const val KEY_MUSIC_LOGS = "music_logs_json"
         
         // Default values
         private const val DEFAULT_HYDRATION_ENABLED = false
         private const val DEFAULT_HYDRATION_INTERVAL = 60 // 1 hour
-        private const val DEFAULT_PRIMARY_COLOR = "#8D6E63" // Brown
+        private const val DEFAULT_PRIMARY_COLOR = "#E91E63" // Rose
         private const val DEFAULT_APP_NAME = "Habbit Tracker"
     }
     
@@ -96,6 +98,26 @@ class PreferencesHelper(context: Context) {
             try {
                 val type = object : TypeToken<List<ReadingNote>>() {}.type
                 gson.fromJson<List<ReadingNote>>(json, type) ?: emptyList()
+            } catch (e: Exception) {
+                emptyList()
+            }
+        } else {
+            emptyList()
+        }
+    }
+    
+    // Music logs
+    fun saveMusicLogs(entries: List<MusicLog>) {
+        val json = gson.toJson(entries)
+        prefs.edit().putString(KEY_MUSIC_LOGS, json).apply()
+    }
+
+    fun getMusicLogs(): List<MusicLog> {
+        val json = prefs.getString(KEY_MUSIC_LOGS, null)
+        return if (json != null) {
+            try {
+                val type = object : TypeToken<List<MusicLog>>() {}.type
+                gson.fromJson<List<MusicLog>>(json, type) ?: emptyList()
             } catch (e: Exception) {
                 emptyList()
             }
@@ -166,6 +188,15 @@ class PreferencesHelper(context: Context) {
     
     fun setDemoDataLoaded(loaded: Boolean) {
         prefs.edit().putBoolean(KEY_DEMO_DATA_LOADED, loaded).apply()
+    }
+    
+    // Onboarding
+    fun isOnboardingDone(): Boolean {
+        return prefs.getBoolean(KEY_ONBOARDING_DONE, false)
+    }
+    
+    fun setOnboardingDone(done: Boolean) {
+        prefs.edit().putBoolean(KEY_ONBOARDING_DONE, done).apply()
     }
     
     /**

@@ -74,79 +74,7 @@
 
                 </FrameLayout>
 
-                <!-- Reading – Mental stimulation section -->
-                <LinearLayout
-                    android:id="@+id/reading_section"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="20dp">
-
-                    <TextView
-                        android:id="@+id/text_reading_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Reading — Mental stimulation"
-                        android:textStyle="bold"
-                        android:textSize="16sp" />
-
-                    <HorizontalScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:scrollbars="none">
-
-                        <com.google.android.material.chip.ChipGroup
-                            android:id="@+id/chips_reading"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:singleLine="true"
-                            app:singleSelection="false">
-
-                            <com.google.android.material.chip.Chip
-                                android:id="@+id/chip_article"
-                                style="@style/Widget.Material3.Chip.Assist"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="15 min article"
-                                app:chipBackgroundColor="@color/colorSecondary"
-                                app:chipStrokeColor="@color/colorPrimary"
-                                app:chipStrokeWidth="1dp" />
-
-                            <com.google.android.material.chip.Chip
-                                android:id="@+id/chip_book"
-                                style="@style/Widget.Material3.Chip.Assist"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Book chapter"
-                                app:chipBackgroundColor="@color/colorSecondary"
-                                app:chipStrokeColor="@color/colorPrimary"
-                                app:chipStrokeWidth="1dp" />
-
-                            <com.google.android.material.chip.Chip
-                                android:id="@+id/chip_audio"
-                                style="@style/Widget.Material3.Chip.Assist"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Audiobook 10 min"
-                                app:chipBackgroundColor="@color/colorSecondary"
-                                app:chipStrokeColor="@color/colorPrimary"
-                                app:chipStrokeWidth="1dp" />
-
-                            <com.google.android.material.chip.Chip
-                                android:id="@+id/chip_notes"
-                                style="@style/Widget.Material3.Chip.Assist"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Notes / highlights"
-                                app:chipBackgroundColor="@color/colorSecondary"
-                                app:chipStrokeColor="@color/colorPrimary"
-                                app:chipStrokeWidth="1dp" />
-
-                        </com.google.android.material.chip.ChipGroup>
-                    </HorizontalScrollView>
-
-                </LinearLayout>
+                
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -155,6 +83,114 @@
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false"
                 tools:listitem="@layout/item_habit" />
+
+            <!-- Music — Emotional expression section -->
+            <LinearLayout
+                android:id="@+id/music_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Music — Emotional expression"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:scrollbars="none">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chips_music"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:singleLine="true"
+                        app:singleSelection="false">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_listen"
+                            style="@style/Widget.Material3.Chip.Assist"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Listen 10 min"
+                            app:chipBackgroundColor="@color/colorSecondary"
+                            app:chipStrokeColor="@color/colorPrimary"
+                            app:chipStrokeWidth="1dp" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_sing"
+                            style="@style/Widget.Material3.Chip.Assist"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sing 3 songs"
+                            app:chipBackgroundColor="@color/colorSecondary"
+                            app:chipStrokeColor="@color/colorPrimary"
+                            app:chipStrokeWidth="1dp" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_add_playlist"
+                            style="@style/Widget.Material3.Chip.Assist"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Add to playlist"
+                            app:chipBackgroundColor="@color/colorSecondary"
+                            app:chipStrokeColor="@color/colorPrimary"
+                            app:chipStrokeWidth="1dp" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_view_playlist"
+                            style="@style/Widget.Material3.Chip.Assist"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="View my playlist"
+                            app:chipBackgroundColor="@color/colorSecondary"
+                            app:chipStrokeColor="@color/colorPrimary"
+                            app:chipStrokeWidth="1dp" />
+
+                    </com.google.android.material.chip.ChipGroup>
+                </HorizontalScrollView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="12dp">
+
+                    <Button
+                        android:id="@+id/btn_music_timer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start 10-min timer" />
+
+                    <TextView
+                        android:id="@+id/text_music_timer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="10:00" />
+
+                    <Button
+                        android:id="@+id/btn_music_log"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Quick log"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/text_music_stats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="This week: 0 min • Streak: 0 days" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/empty_state"

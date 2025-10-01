@@ -3,14 +3,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     
-    <!-- Primary colors -->
-    <color name="colorPrimary">#8D6E63</color>
-    <color name="colorPrimaryVariant">#5D4037</color>
+    <!-- Primary colors (Rose) -->
+    <color name="colorPrimary">#E91E63</color>
+    <color name="colorPrimaryVariant">#C2185B</color>
     <color name="colorOnPrimary">#FFFFFF</color>
     
-    <!-- Secondary colors -->
-    <color name="colorSecondary">#BCAAA4</color>
-    <color name="colorSecondaryVariant">#8D6E63</color>
+    <!-- Secondary colors (Rose tint) -->
+    <color name="colorSecondary">#F48FB1</color>
+    <color name="colorSecondaryVariant">#E91E63</color>
     <color name="colorOnSecondary">#000000</color>
     
     <!-- Background colors -->

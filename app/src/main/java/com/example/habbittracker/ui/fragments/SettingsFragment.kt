@@ -114,7 +114,7 @@ class SettingsFragment : Fragment() {
         
         // Primary color
         val colors = listOf(
-            "#8D6E63", // Brown (default)
+            "#E91E63", // Rose (default)
             "#E91E63", // Pink
             "#9C27B0", // Purple
             "#673AB7", // Deep Purple
@@ -129,7 +129,7 @@ class SettingsFragment : Fragment() {
         )
         
         val colorLabels = listOf(
-            "Brown", "Pink", "Purple", "Deep Purple", "Indigo", "Blue",
+            "Rose", "Pink", "Purple", "Deep Purple", "Indigo", "Blue",
             "Cyan", "Green", "Light Green", "Amber", "Orange", "Red"
         )
         

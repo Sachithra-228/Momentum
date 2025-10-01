@@ -16,14 +16,12 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.example.habbittracker.data.Habit
+import com.example.habbittracker.data.MusicLog
 import com.example.habbittracker.data.PreferencesHelper
 import com.example.habbittracker.databinding.FragmentHabitsBinding
 import com.example.habbittracker.ui.adapters.HabitsAdapter
 import com.example.habbittracker.ui.dialogs.AddHabitDialog
-import com.example.habbittracker.ui.fragments.reading.ArticleFragment
-import com.example.habbittracker.ui.fragments.reading.BookChapterFragment
-import com.example.habbittracker.ui.fragments.reading.AudiobookFragment
-import com.example.habbittracker.ui.fragments.reading.NotesFragment
+// Removed reading feature imports
 
 /**
  * Fragment for managing daily habits
@@ -55,7 +53,7 @@ class HabitsFragment : Fragment() {
         setupPieChart()
         setupRecyclerView()
         setupFab()
-        setupReadingChips()
+        setupMusicSection()
         loadHabits()
     }
 
@@ -238,19 +236,137 @@ class HabitsFragment : Fragment() {
         }
     }
 
-    private fun setupReadingChips() {
-        binding.chipArticle.setOnClickListener {
-            navigateTo(ArticleFragment())
+    // Music section
+    private var musicTimerSecondsRemaining: Int = 600
+    private var musicTimer: java.util.Timer? = null
+
+    private fun setupMusicSection() {
+        binding.chipListen.setOnClickListener {
+            quickLog(action = "listen", minutes = 10)
         }
-        binding.chipBook.setOnClickListener {
-            navigateTo(BookChapterFragment())
+        binding.chipSing.setOnClickListener {
+            quickLog(action = "sing", minutes = 10) // 3 songs ~ 10 min
         }
-        binding.chipAudio.setOnClickListener {
-            navigateTo(AudiobookFragment())
+        binding.chipAddPlaylist.setOnClickListener {
+            quickLog(action = "playlist", minutes = 1)
         }
-        binding.chipNotes.setOnClickListener {
-            navigateTo(NotesFragment())
+        binding.chipViewPlaylist.setOnClickListener {
+            navigateTo(PlaylistFragment())
         }
+
+        binding.btnMusicTimer.setOnClickListener {
+            if (musicTimer == null) startMusicTimer() else stopMusicTimer(saveOnStop = true)
+        }
+        binding.btnMusicLog.setOnClickListener {
+            showMusicLogDialog()
+        }
+
+        updateMusicStats()
+        updateMusicTimerLabel()
+    }
+
+    private fun startMusicTimer() {
+        binding.btnMusicTimer.text = "Stop timer"
+        musicTimerSecondsRemaining = 600
+        musicTimer = java.util.Timer()
+        musicTimer?.scheduleAtFixedRate(object : java.util.TimerTask() {
+            override fun run() {
+                activity?.runOnUiThread {
+                    musicTimerSecondsRemaining--
+                    updateMusicTimerLabel()
+                    if (musicTimerSecondsRemaining <= 0) {
+                        stopMusicTimer(saveOnStop = true)
+                    }
+                }
+            }
+        }, 1000, 1000)
+    }
+
+    private fun stopMusicTimer(saveOnStop: Boolean) {
+        musicTimer?.cancel()
+        musicTimer = null
+        binding.btnMusicTimer.text = "Start 10-min timer"
+        if (saveOnStop) {
+            saveMusicLog(MusicLog(System.currentTimeMillis(), 10, "timer"))
+        }
+        musicTimerSecondsRemaining = 600
+        updateMusicTimerLabel()
+        updateMusicStats()
+    }
+
+    private fun updateMusicTimerLabel() {
+        val m = musicTimerSecondsRemaining / 60
+        val s = musicTimerSecondsRemaining % 60
+        binding.textMusicTimer.text = String.format("%02d:%02d", m, s)
+    }
+
+    private fun showMusicLogDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_music_log, null)
+        val editSong = dialogView.findViewById<android.widget.EditText>(R.id.edit_song)
+        val spinner = dialogView.findViewById<android.widget.Spinner>(R.id.spinner_emotion)
+        val seek = dialogView.findViewById<android.widget.SeekBar>(R.id.seek_intensity)
+        val editNotes = dialogView.findViewById<android.widget.EditText>(R.id.edit_notes)
+
+        val emotions = listOf("Happy", "Calm", "Melancholy", "Energized", "Reflective")
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, emotions)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+
+        AlertDialog.Builder(requireContext())
+            .setTitle("Quick Music Log")
+            .setView(dialogView)
+            .setPositiveButton("Save") { _, _ ->
+                saveMusicLog(
+                    MusicLog(
+                        timestamp = System.currentTimeMillis(),
+                        minutes = 10,
+                        action = "log",
+                        song = editSong.text.toString().takeIf { it.isNotBlank() },
+                        emotion = emotions.getOrNull(spinner.selectedItemPosition),
+                        intensity = seek.progress,
+                        notes = editNotes.text.toString().takeIf { it.isNotBlank() }
+                    )
+                )
+                updateMusicStats()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun quickLog(action: String, minutes: Int) {
+        saveMusicLog(MusicLog(System.currentTimeMillis(), minutes, action))
+        updateMusicStats()
+        Toast.makeText(requireContext(), "Logged $minutes min", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun saveMusicLog(entry: MusicLog) {
+        val logs = preferencesHelper.getMusicLogs().toMutableList()
+        logs.add(entry)
+        preferencesHelper.saveMusicLogs(logs)
+    }
+
+    private fun updateMusicStats() {
+        val logs = preferencesHelper.getMusicLogs()
+        val now = System.currentTimeMillis()
+        val weekMs = 7 * 24 * 60 * 60 * 1000L
+        val weekMinutes = logs.filter { now - it.timestamp <= weekMs }.sumOf { it.minutes }
+
+        // Simple daily streak based on any log on consecutive days
+        val days = logs.map { java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault()).format(java.util.Date(it.timestamp)) }
+        val uniqueDays = days.toSet().toMutableSet()
+        var streak = 0
+        val cal = java.util.Calendar.getInstance()
+        while (true) {
+            val key = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault()).format(cal.time)
+            if (uniqueDays.contains(key)) {
+                streak++
+                cal.add(java.util.Calendar.DAY_OF_YEAR, -1)
+            } else {
+                break
+            }
+        }
+
+        binding.textMusicStats.text = "This week: ${weekMinutes} min • Streak: ${streak} days"
     }
 
     private fun navigateTo(fragment: Fragment) {

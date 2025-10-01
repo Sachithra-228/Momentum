@@ -11,6 +11,7 @@ import com.example.habbittracker.databinding.ActivityMainBinding
 import com.example.habbittracker.ui.fragments.HabitsFragment
 import com.example.habbittracker.ui.fragments.MoodFragment
 import com.example.habbittracker.ui.fragments.SettingsFragment
+import com.example.habbittracker.ui.fragments.OnboardingWelcomeFragment
 
 /**
  * Main activity hosting the bottom navigation with three tabs:
@@ -40,11 +41,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         
         setupBottomNavigation()
-        
-        // Load default fragment
+
+        // Decide start destination: onboarding vs app
         if (savedInstanceState == null) {
-            loadFragment(HabitsFragment())
-            binding.bottomNavigation.selectedItemId = R.id.nav_habits
+            if (preferencesHelper.isOnboardingDone()) {
+                loadFragment(HabitsFragment())
+                binding.bottomNavigation.selectedItemId = R.id.nav_habits
+            } else {
+                // Show onboarding and hide bottom nav
+                loadFragment(OnboardingWelcomeFragment())
+                binding.bottomNavigation.visibility = android.view.View.GONE
+            }
         }
         
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -78,6 +85,11 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
+    }
+
+    fun navigateToBottomTab(menuId: Int) {
+        binding.bottomNavigation.visibility = android.view.View.VISIBLE
+        binding.bottomNavigation.selectedItemId = menuId
     }
     
     /**

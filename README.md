@@ -99,7 +99,7 @@ data class MoodEntry(
 
 ### App Identity (Configurable)
 - **APP_NAME**: "Habbit Tracker" (customizable in Settings)
-- **PRIMARY_COLOR_HEX**: "#8D6E63" (Brown - customizable in Settings)
+- **PRIMARY_COLOR_HEX**: "#E91E63" (Rose - customizable in Settings)
 
 ### Advanced Features
 The app implements **Option A** (Chart visualization) by default. Options B and C are provided as commented templates:
