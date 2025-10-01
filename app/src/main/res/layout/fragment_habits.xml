@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.HabitsFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:title="Habits"
+            app:titleTextColor="@android:color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Hero Section -->
+            <LinearLayout
+                android:id="@+id/hero_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@android:color/transparent">
+
+                <TextView
+                    android:id="@+id/text_hero_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome to Daily Habit Tracker"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.02"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/text_hero_slogan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Build consistency, one small step at a time"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/darker_gray" />
+
+                <!-- Pie Chart (simulated with circular ProgressBar and centered percentage) -->
+                <FrameLayout
+                    android:id="@+id/summary_pie_container"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_gravity="center_horizontal">
+
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/pie_overall"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </FrameLayout>
+
+                <!-- Reading – Mental stimulation section -->
+                <LinearLayout
+                    android:id="@+id/reading_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/text_reading_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reading — Mental stimulation"
+                        android:textStyle="bold"
+                        android:textSize="16sp" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:scrollbars="none">
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/chips_reading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:singleLine="true"
+                            app:singleSelection="false">
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chip_article"
+                                style="@style/Widget.Material3.Chip.Assist"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="15 min article"
+                                app:chipBackgroundColor="@color/colorSecondary"
+                                app:chipStrokeColor="@color/colorPrimary"
+                                app:chipStrokeWidth="1dp" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chip_book"
+                                style="@style/Widget.Material3.Chip.Assist"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Book chapter"
+                                app:chipBackgroundColor="@color/colorSecondary"
+                                app:chipStrokeColor="@color/colorPrimary"
+                                app:chipStrokeWidth="1dp" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chip_audio"
+                                style="@style/Widget.Material3.Chip.Assist"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Audiobook 10 min"
+                                app:chipBackgroundColor="@color/colorSecondary"
+                                app:chipStrokeColor="@color/colorPrimary"
+                                app:chipStrokeWidth="1dp" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chip_notes"
+                                style="@style/Widget.Material3.Chip.Assist"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Notes / highlights"
+                                app:chipBackgroundColor="@color/colorSecondary"
+                                app:chipStrokeColor="@color/colorPrimary"
+                                app:chipStrokeWidth="1dp" />
+
+                        </com.google.android.material.chip.ChipGroup>
+                    </HorizontalScrollView>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_habits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@layout/item_habit" />
+
+            <LinearLayout
+                android:id="@+id/empty_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="32dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/ic_habit_empty"
+                    android:alpha="0.6" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="No habits yet"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Tap the + button to add your first habit"
+                    android:textSize="14sp"
+                    android:alpha="0.7" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_habit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_add"
+        app:tint="@android:color/white" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

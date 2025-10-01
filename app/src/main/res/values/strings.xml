@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">Habbit Tracker</string>
+    
+    <!-- Navigation -->
+    <string name="nav_habits">Habits</string>
+    <string name="nav_mood">Mood</string>
+    <string name="nav_settings">Settings</string>
+    
+    <!-- Habits -->
+    <string name="habits_title">Habits</string>
+    <string name="add_habit">Add Habit</string>
+    <string name="edit_habit">Edit Habit</string>
+    <string name="delete_habit">Delete Habit</string>
+    <string name="habit_name">Habit name</string>
+    <string name="habit_type">Type</string>
+    <string name="habit_target_count">Target count</string>
+    <string name="habit_completed">Completed</string>
+    <string name="habit_not_completed">Not completed</string>
+    <string name="no_habits_yet">No habits yet</string>
+    <string name="add_first_habit">Tap the + button to add your first habit</string>
+    
+    <!-- Mood -->
+    <string name="mood_title">Mood</string>
+    <string name="how_are_you_feeling">How are you feeling?</string>
+    <string name="add_mood">Add Mood</string>
+    <string name="mood_trend">Mood Trend (Last 7 Days)</string>
+    <string name="recent_moods">Recent Moods</string>
+    <string name="share_mood_summary">Share</string>
+    <string name="no_mood_entries_yet">No mood entries yet</string>
+    <string name="add_first_mood">Select an emoji and add your first mood</string>
+    
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="hydration_reminder">Hydration Reminder</string>
+    <string name="enable_reminders">Enable reminders</string>
+    <string name="reminder_interval">Reminder interval</string>
+    <string name="hydration_status_enabled">Hydration reminders are enabled</string>
+    <string name="hydration_status_disabled">Hydration reminders are disabled</string>
+    <string name="appearance">Appearance</string>
+    <string name="app_name_setting">App Name</string>
+    <string name="primary_color">Primary Color</string>
+    <string name="about">About</string>
+    <string name="version">Version</string>
+    <string name="reset_demo_data">Reset Demo Data</string>
+    
+    <!-- Common -->
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="complete">Complete</string>
+    <string name="undo">Undo</string>
+    <string name="confirm_delete">Are you sure you want to delete this item?</string>
+    <string name="reset_confirmation">This will delete all data. Are you sure?</string>
+    <string name="app_name_updated">App name updated</string>
+    <string name="color_updated">Color updated. Restart app to see changes.</string>
+    <string name="demo_data_reset">Demo data reset successfully</string>
+    <string name="habit_added">Habit added successfully</string>
+    <string name="habit_updated">Habit updated successfully</string>
+    <string name="habit_deleted">Habit deleted successfully</string>
+    <string name="mood_added">Mood added successfully</string>
+    
+    <!-- Validation -->
+    <string name="please_enter_habit_name">Please enter a habit name</string>
+    <string name="please_enter_target_count">Please enter a target count</string>
+    <string name="target_count_greater_than_zero">Target count must be greater than 0</string>
+    <string name="please_enter_valid_number">Please enter a valid number</string>
+    <string name="app_name_cannot_be_empty">App name cannot be empty</string>
+    
+    <!-- Notifications -->
+    <string name="hydration_notification_title">Time to drink water 💧</string>
+    <string name="hydration_notification_text">Stay hydrated! Remember to drink some water.</string>
+    <string name="hydration_channel_name">Hydration Reminders</string>
+    <string name="hydration_channel_description">Reminders to drink water throughout the day</string>
+</resources>

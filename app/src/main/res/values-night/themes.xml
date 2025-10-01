@@ -1,0 +1,29 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.HabbitTracker" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+        
+        <!-- Background colors -->
+        <item name="android:colorBackground">#121212</item>
+        <item name="colorOnBackground">#E1E1E1</item>
+        
+        <!-- Surface colors -->
+        <item name="colorSurface">#1E1E1E</item>
+        <item name="colorOnSurface">#E1E1E1</item>
+        
+        <!-- Error colors -->
+        <item name="colorError">#CF6679</item>
+        <item name="colorOnError">#000000</item>
+    </style>
+</resources>

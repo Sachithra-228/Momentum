@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/text_emoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="😊"
+            android:textSize="24sp"
+            android:layout_marginEnd="12dp"
+            tools:text="😊" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/text_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="14:30"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="14:30" />
+
+                <ImageButton
+                    android:id="@+id/btn_edit"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_edit"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Edit" />
+
+                <ImageButton
+                    android:id="@+id/btn_delete"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_delete"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Delete" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Feeling good today!"
+                android:textSize="14sp"
+                android:alpha="0.8"
+                android:layout_marginTop="2dp"
+                android:visibility="visible"
+                tools:text="Feeling good today!"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
