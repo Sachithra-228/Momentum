@@ -32,12 +32,12 @@ class PreferencesHelper(context: Context) {
         private const val KEY_DEMO_DATA_LOADED = "demo_data_loaded"
         private const val KEY_READING_NOTES = "reading_notes_json"
         private const val KEY_ONBOARDING_DONE = "onboarding_done"
-        private const val KEY_MUSIC_LOGS = "music_logs_json"
+        private const val KEY_BREATHING_SESSIONS = "breathing_sessions_json"
         
         // Default values
         private const val DEFAULT_HYDRATION_ENABLED = false
         private const val DEFAULT_HYDRATION_INTERVAL = 60 // 1 hour
-        private const val DEFAULT_PRIMARY_COLOR = "#F8BBD9" // Light Rose
+        private const val DEFAULT_PRIMARY_COLOR = "#B3E5FC" // Light Blue
         private const val DEFAULT_APP_NAME = "Habbit Tracker"
     }
     
@@ -106,18 +106,18 @@ class PreferencesHelper(context: Context) {
         }
     }
     
-    // Music logs
-    fun saveMusicLogs(entries: List<MusicLog>) {
-        val json = gson.toJson(entries)
-        prefs.edit().putString(KEY_MUSIC_LOGS, json).apply()
+    // Breathing sessions
+    fun saveBreathingSessions(sessions: List<BreathingSession>) {
+        val json = gson.toJson(sessions)
+        prefs.edit().putString(KEY_BREATHING_SESSIONS, json).apply()
     }
 
-    fun getMusicLogs(): List<MusicLog> {
-        val json = prefs.getString(KEY_MUSIC_LOGS, null)
+    fun getBreathingSessions(): List<BreathingSession> {
+        val json = prefs.getString(KEY_BREATHING_SESSIONS, null)
         return if (json != null) {
             try {
-                val type = object : TypeToken<List<MusicLog>>() {}.type
-                gson.fromJson<List<MusicLog>>(json, type) ?: emptyList()
+                val type = object : TypeToken<List<BreathingSession>>() {}.type
+                gson.fromJson<List<BreathingSession>>(json, type) ?: emptyList()
             } catch (e: Exception) {
                 emptyList()
             }

@@ -3,23 +3,23 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     
-    <!-- Primary colors (Light Rose) -->
-    <color name="colorPrimary">#F8BBD9</color>
-    <color name="colorPrimaryVariant">#F4A6D1</color>
-    <color name="colorOnPrimary">#2D1B2E</color>
+    <!-- Primary colors (Light Blue) -->
+    <color name="colorPrimary">#B3E5FC</color>
+    <color name="colorPrimaryVariant">#81D4FA</color>
+    <color name="colorOnPrimary">#0D47A1</color>
     
-    <!-- Secondary colors (Light Rose tint) -->
-    <color name="colorSecondary">#FCE4EC</color>
-    <color name="colorSecondaryVariant">#F8BBD9</color>
-    <color name="colorOnSecondary">#2D1B2E</color>
+    <!-- Secondary colors (Light Blue tint) -->
+    <color name="colorSecondary">#E1F5FE</color>
+    <color name="colorSecondaryVariant">#B3E5FC</color>
+    <color name="colorOnSecondary">#0D47A1</color>
     
     <!-- Background colors -->
-    <color name="colorBackground">#FFF8FC</color>
-    <color name="colorOnBackground">#2D1B2E</color>
+    <color name="colorBackground">#F8FCFF</color>
+    <color name="colorOnBackground">#0D47A1</color>
     
     <!-- Surface colors -->
     <color name="colorSurface">#FFFFFF</color>
-    <color name="colorOnSurface">#2D1B2E</color>
+    <color name="colorOnSurface">#0D47A1</color>
     
     <!-- Error colors -->
     <color name="colorError">#B3261E</color>

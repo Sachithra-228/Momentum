@@ -84,117 +84,92 @@
                 android:nestedScrollingEnabled="false"
                 tools:listitem="@layout/item_habit" />
 
-            <!-- Music — Emotional expression section -->
+            <!-- Breathing Exercises Section -->
             <LinearLayout
-                android:id="@+id/music_section"
+                android:id="@+id/breathing_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="24dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Music — Emotional expression"
-                    android:textStyle="bold"
-                    android:textSize="16sp" />
-
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:scrollbars="none">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <com.google.android.material.chip.ChipGroup
-                            android:id="@+id/chips_music"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:singleLine="true"
-                            app:singleSelection="false">
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/chip_listen"
-                            style="@style/Widget.Material3.Chip.Assist"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Listen 10 min"
-                            app:chipBackgroundColor="@color/colorSecondary"
-                            app:chipStrokeColor="@color/colorPrimary"
-                            app:chipStrokeWidth="1dp" />
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/chip_sing"
-                            style="@style/Widget.Material3.Chip.Assist"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Sing 3 songs"
-                            app:chipBackgroundColor="@color/colorSecondary"
-                            app:chipStrokeColor="@color/colorPrimary"
-                            app:chipStrokeWidth="1dp" />
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/chip_add_playlist"
-                            style="@style/Widget.Material3.Chip.Assist"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Add to playlist"
-                            app:chipBackgroundColor="@color/colorSecondary"
-                            app:chipStrokeColor="@color/colorPrimary"
-                            app:chipStrokeWidth="1dp" />
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/chip_view_playlist"
-                            style="@style/Widget.Material3.Chip.Assist"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="View my playlist"
-                            app:chipBackgroundColor="@color/colorSecondary"
-                            app:chipStrokeColor="@color/colorPrimary"
-                            app:chipStrokeWidth="1dp" />
-
-                        </com.google.android.material.chip.ChipGroup>
-                    </LinearLayout>
-                </HorizontalScrollView>
+                android:layout_marginTop="24dp"
+                android:padding="20dp"
+                android:background="@drawable/breathing_section_background">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:layout_marginTop="12dp">
-
-                    <Button
-                        android:id="@+id/btn_music_timer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Start 10-min timer" />
+                    android:layout_marginBottom="16dp">
 
                     <TextView
-                        android:id="@+id/text_music_timer"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:text="10:00" />
+                        android:layout_weight="1"
+                        android:text="🌬️ Breathing Exercises"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorOnBackground" />
 
                     <Button
-                        android:id="@+id/btn_music_log"
+                        android:id="@+id/btn_view_all_breathing"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Quick log"
-                        android:layout_marginStart="12dp" />
+                        android:text="View All"
+                        android:textSize="14sp"
+                        android:background="@drawable/button_view_all_background"
+                        android:textColor="@color/colorPrimary" />
+
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/text_music_stats"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="This week: 0 min • Streak: 0 days" />
+                    android:text="Stress Relief &amp; Wellness"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorOnBackground"
+                    android:alpha="0.7"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Quick Breathing Options -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <Button
+                        android:id="@+id/btn_quick_478_breathing"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:text="4-7-8 (3 min)"
+                        android:textSize="14sp"
+                        android:background="@drawable/button_breathing_primary"
+                        android:textColor="@color/colorOnPrimary" />
+
+                    <Button
+                        android:id="@+id/btn_quick_box_breathing"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="Box (5 min)"
+                        android:textSize="14sp"
+                        android:background="@drawable/button_breathing_secondary"
+                        android:textColor="@color/colorOnSecondary" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_emergency_calm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🚨 Emergency Calm (2 min)"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/button_emergency_background"
+                    android:textColor="@android:color/white" />
 
             </LinearLayout>
 

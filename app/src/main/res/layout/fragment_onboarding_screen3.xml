@@ -12,7 +12,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="80dp"
-        android:src="@drawable/streakly_logo"
+        android:src="@drawable/momentum_logo"
         android:contentDescription="Ready to Start Illustration"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -3,29 +3,29 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     
-    <!-- Primary colors (Light Rose - Dark Mode) -->
-    <color name="colorPrimary">#F4A6D1</color>
-    <color name="colorPrimaryVariant">#F8BBD9</color>
-    <color name="colorOnPrimary">#2D1B2E</color>
+    <!-- Primary colors (Light Blue - Dark Mode) -->
+    <color name="colorPrimary">#81D4FA</color>
+    <color name="colorPrimaryVariant">#B3E5FC</color>
+    <color name="colorOnPrimary">#0D47A1</color>
     
-    <!-- Secondary colors (Light Rose tint - Dark Mode) -->
-    <color name="colorSecondary">#F8BBD9</color>
-    <color name="colorSecondaryVariant">#F4A6D1</color>
-    <color name="colorOnSecondary">#2D1B2E</color>
+    <!-- Secondary colors (Light Blue tint - Dark Mode) -->
+    <color name="colorSecondary">#B3E5FC</color>
+    <color name="colorSecondaryVariant">#81D4FA</color>
+    <color name="colorOnSecondary">#0D47A1</color>
     
     <!-- Background colors -->
-    <color name="colorBackground">#1A0F1A</color>
-    <color name="colorOnBackground">#FCE4EC</color>
+    <color name="colorBackground">#0F1A2E</color>
+    <color name="colorOnBackground">#E1F5FE</color>
     
     <!-- Surface colors -->
-    <color name="colorSurface">#2D1B2E</color>
-    <color name="colorOnSurface">#FCE4EC</color>
+    <color name="colorSurface">#1A2E47</color>
+    <color name="colorOnSurface">#E1F5FE</color>
     
     <!-- Error colors -->
     <color name="colorError">#CF6679</color>
     <color name="colorOnError">#000000</color>
     
     <!-- Bottom navigation selector -->
-    <color name="bottom_nav_selected">#FCE4EC</color>
-    <color name="bottom_nav_unselected">#80FCE4EC</color>
+    <color name="bottom_nav_selected">#E1F5FE</color>
+    <color name="bottom_nav_unselected">#80E1F5FE</color>
 </resources>
