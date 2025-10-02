@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.habbittracker.databinding.FragmentOnboardingWelcomeBinding
+import com.example.habbittracker.databinding.FragmentOnboardingScreen1Binding
 
-class OnboardingWelcomeFragment : Fragment() {
+class OnboardingScreen1Fragment : Fragment() {
 
-    private var _binding: FragmentOnboardingWelcomeBinding? = null
+    private var _binding: FragmentOnboardingScreen1Binding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,17 +17,21 @@ class OnboardingWelcomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentOnboardingWelcomeBinding.inflate(inflater, container, false)
+        _binding = FragmentOnboardingScreen1Binding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnGetStarted.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(com.example.habbittracker.R.id.fragment_container, OnboardingSelectFragment())
-                .addToBackStack(null)
-                .commit()
+        
+        binding.btnSkip.setOnClickListener {
+            // Skip to main app
+            (requireActivity() as com.example.habbittracker.MainActivity).completeOnboarding()
+        }
+        
+        binding.btnNext.setOnClickListener {
+            // Move to next screen
+            (requireActivity() as com.example.habbittracker.MainActivity).nextOnboardingScreen()
         }
     }
 
@@ -36,5 +40,3 @@ class OnboardingWelcomeFragment : Fragment() {
         _binding = null
     }
 }
-
-

@@ -105,12 +105,17 @@
                     android:layout_marginTop="8dp"
                     android:scrollbars="none">
 
-                    <com.google.android.material.chip.ChipGroup
-                        android:id="@+id/chips_music"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:singleLine="true"
-                        app:singleSelection="false">
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/chips_music"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:singleLine="true"
+                            app:singleSelection="false">
 
                         <com.google.android.material.chip.Chip
                             android:id="@+id/chip_listen"
@@ -152,7 +157,8 @@
                             app:chipStrokeColor="@color/colorPrimary"
                             app:chipStrokeWidth="1dp" />
 
-                    </com.google.android.material.chip.ChipGroup>
+                        </com.google.android.material.chip.ChipGroup>
+                    </LinearLayout>
                 </HorizontalScrollView>
 
                 <LinearLayout

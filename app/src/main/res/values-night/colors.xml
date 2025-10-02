@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Primary colors (Light Rose - Dark Mode) -->
+    <color name="colorPrimary">#F4A6D1</color>
+    <color name="colorPrimaryVariant">#F8BBD9</color>
+    <color name="colorOnPrimary">#2D1B2E</color>
+    
+    <!-- Secondary colors (Light Rose tint - Dark Mode) -->
+    <color name="colorSecondary">#F8BBD9</color>
+    <color name="colorSecondaryVariant">#F4A6D1</color>
+    <color name="colorOnSecondary">#2D1B2E</color>
+    
+    <!-- Background colors -->
+    <color name="colorBackground">#1A0F1A</color>
+    <color name="colorOnBackground">#FCE4EC</color>
+    
+    <!-- Surface colors -->
+    <color name="colorSurface">#2D1B2E</color>
+    <color name="colorOnSurface">#FCE4EC</color>
+    
+    <!-- Error colors -->
+    <color name="colorError">#CF6679</color>
+    <color name="colorOnError">#000000</color>
+    
+    <!-- Bottom navigation selector -->
+    <color name="bottom_nav_selected">#FCE4EC</color>
+    <color name="bottom_nav_unselected">#80FCE4EC</color>
+</resources>

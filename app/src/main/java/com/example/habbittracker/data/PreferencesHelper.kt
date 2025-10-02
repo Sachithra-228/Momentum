@@ -37,7 +37,7 @@ class PreferencesHelper(context: Context) {
         // Default values
         private const val DEFAULT_HYDRATION_ENABLED = false
         private const val DEFAULT_HYDRATION_INTERVAL = 60 // 1 hour
-        private const val DEFAULT_PRIMARY_COLOR = "#E91E63" // Rose
+        private const val DEFAULT_PRIMARY_COLOR = "#F8BBD9" // Light Rose
         private const val DEFAULT_APP_NAME = "Habbit Tracker"
     }
     

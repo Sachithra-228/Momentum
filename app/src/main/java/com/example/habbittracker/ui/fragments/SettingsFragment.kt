@@ -114,8 +114,8 @@ class SettingsFragment : Fragment() {
         
         // Primary color
         val colors = listOf(
-            "#E91E63", // Rose (default)
-            "#E91E63", // Pink
+            "#F8BBD9", // Light Rose (default)
+            "#F4A6D1", // Light Rose variant
             "#9C27B0", // Purple
             "#673AB7", // Deep Purple
             "#3F51B5", // Indigo

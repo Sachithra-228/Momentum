@@ -11,7 +11,7 @@ import com.example.habbittracker.databinding.ActivityMainBinding
 import com.example.habbittracker.ui.fragments.HabitsFragment
 import com.example.habbittracker.ui.fragments.MoodFragment
 import com.example.habbittracker.ui.fragments.SettingsFragment
-import com.example.habbittracker.ui.fragments.OnboardingWelcomeFragment
+import com.example.habbittracker.ui.fragments.OnboardingFragment
 
 /**
  * Main activity hosting the bottom navigation with three tabs:
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                 binding.bottomNavigation.selectedItemId = R.id.nav_habits
             } else {
                 // Show onboarding and hide bottom nav
-                loadFragment(OnboardingWelcomeFragment())
+                loadFragment(OnboardingFragment())
                 binding.bottomNavigation.visibility = android.view.View.GONE
             }
         }
@@ -117,4 +117,24 @@ class MainActivity : AppCompatActivity() {
      * Get preferences helper instance
      */
     fun getPreferencesHelper(): PreferencesHelper = preferencesHelper
+    
+    /**
+     * Complete onboarding and show main app
+     */
+    fun completeOnboarding() {
+        preferencesHelper.setOnboardingDone(true)
+        loadFragment(HabitsFragment())
+        binding.bottomNavigation.visibility = android.view.View.VISIBLE
+        binding.bottomNavigation.selectedItemId = R.id.nav_habits
+    }
+    
+    /**
+     * Move to next onboarding screen
+     */
+    fun nextOnboardingScreen() {
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
+        if (currentFragment is OnboardingFragment) {
+            currentFragment.nextScreen()
+        }
+    }
 }
